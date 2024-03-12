@@ -1,0 +1,10 @@
+import requests
+response =requests.get('https://api.sunrise-sunset.org/json?lat=35.7219&lng=51.3347')
+sunrise=response.json()['results']['sunrise']
+sunset=response.json()['results']['sunset']
+print('sunrise is' , sunrise,' and sunset is ', sunset)
+API_KEY = '50444445494F5361504E502B425A45594B7532566C45486434424B4F78366F6B6C6A7963594133523662513D'
+url='https://api.kavenegar.com/v1/%s/sms/send.json' %API_KEY
+payload={'receptor':'09131259818','message':'sunrise is %s' %sunrise}
+response1=requests.post(url,data=payload)
+print(response1)
